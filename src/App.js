@@ -6,9 +6,8 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import "./App.css";
 
 function App() {
-
   const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem("notes-app")) || []   //use state hook
+    JSON.parse(localStorage.getItem("notes-app")) || [] //use state hook
   );
 
   const addNote = (color) => {
@@ -36,7 +35,7 @@ function App() {
   const updateText = (text, id) => {
     const tempNotes = [...notes];
 
-    const index = tempNotes.findIndex((item) => item.id === id);  //function to update text
+    const index = tempNotes.findIndex((item) => item.id === id); //function to update text
     if (index < 0) return;
 
     tempNotes[index].text = text;
@@ -44,12 +43,12 @@ function App() {
   };
 
   useEffect(() => {
-    localStorage.setItem("notes-app" , JSON.stringify(notes)); // re-renders when state changes 
+    localStorage.setItem("notes-app", JSON.stringify(notes)); // re-renders when state changes
   }, [notes]);
 
   return (
     <div className="App">
-      <Sidebar addNote={addNote} />
+      <Sidebar addNote={addNote} notes={notes} setNotes={setNotes} />{" "}
       <NoteContainer
         notes={notes}
         deleteNote={deleteNote}

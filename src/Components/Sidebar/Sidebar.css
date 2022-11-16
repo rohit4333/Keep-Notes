@@ -16,10 +16,19 @@
   align-items: center;
   height: 0;
   transition: 300ms;
+  display: none;
 }
 
 .sidebar_list_active {
-  height: 300px;
+  display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    /* height: 0; */
+    transition: 300ms;
+  height: 200px;
+  /* display: visible; */
+  
 }
 
 .sidebar_list_item {
@@ -27,4 +36,12 @@
   height: 24px;
   width: 24px;
   list-style: none;
+  /* border: 1px solid black; */
+  cursor: pointer;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+img:active {
+  transform: translateY(2px);
 }
